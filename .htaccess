@@ -1,0 +1,4 @@
+# website only.
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/dnscond.github.io/favicon\.ico$ [NC]
+RewriteRule ^(.*)$ https://dnscond.github.io/$1 [R=301,L]
