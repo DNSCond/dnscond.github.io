@@ -1,0 +1,14 @@
+.sans-serif code {
+    font-family: monospace;
+    background-color: lightgray;
+}
+
+.sans-serif pre:has(>code) {
+    font-family: monospace;
+    background-color: lightgray;
+    padding: 1ch;
+}
+
+pre {
+    text-wrap: wrap;
+}
