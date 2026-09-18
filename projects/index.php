@@ -14,7 +14,7 @@ create_head3($title = 'DNSCond\'s Github pages', [
     <h1><?= $title ?></h1>
     <p>To Do: Fix Projects page</p>
     <!--<?= 'TEMPLATE-SPOT-->';
-    echo '</div>';
+    echo "</div>\n";
     return;
     ob_start() ?>-->
     <TEMPLATE shadowrootmode=open>

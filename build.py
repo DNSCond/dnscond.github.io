@@ -1,4 +1,5 @@
-import requests, pathlib
+import requests, pathlib, json, re, time
+from math import floor
 
 
 def main():
@@ -12,6 +13,7 @@ def main():
         ('require/head2/domContentLoadedPromise.js', 'require/head2/domContentLoadedPromise.js',),
         ('gallery/favicon.ico', 'gallery/favicon.ico',),
     )
+
     basepath = pathlib.Path(r'D:\var\www\BOTs\dnscond.github.io')
 
     for i in fetch_queue:
@@ -22,7 +24,28 @@ def main():
         path.parent.mkdir(parents=True, exist_ok=True)
         with open(path, 'wb') as file:
             file.write(resp.content)
+    for i in pathlib.Path('blog').iterdir():
+        if i.suffix == '.php':
+            url = f'http://localhost/dnscond.github.io/blog/{i.name}?isntLocalhost=1'
+            resp = requests.get(url)
+            # noinspection unresolved-references
+            path = basepath / 'blog' / i.with_suffix('.html').name
+            with open(path, 'wb') as file:
+                cont = resp.content
+                cont = re.sub(
+                    b'type=application/prs\\.blog\\+json>([^<]+)</script>',
+                    (lambda match: replacer(match, cont)), cont)
+                file.write(cont)
     pass
+
+
+def replacer(match, _html):
+    # return match.group(0)
+    inner_content = json.loads(match.group(1))  # , indent=2
+    inner_content['content-type'] = 'text/html'
+    inner_content['buildTimeMS'] = floor(time.time()) * 1000
+    modified_content = json.dumps(inner_content, indent=2).replace('<', '\\u003c').encode('utf8')
+    return b'type=application/prs.blog+json>' + modified_content + b'</script>'
 
 
 if __name__ == '__main__':

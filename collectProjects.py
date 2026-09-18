@@ -56,7 +56,6 @@ def md_to_html_to_json(gfm_text: str):
             'pymdownx.superfences'  # For enhanced code blocks
         ]
     )
-
     return html_to_jsonml(f"<div>{html_output}</div>")
 
 
