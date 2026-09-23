@@ -12,6 +12,7 @@ def main():
         ('require/JSONScript.js', 'require/JSONScript.js',),
         ('require/head2/domContentLoadedPromise.js', 'require/head2/domContentLoadedPromise.js',),
         ('gallery/favicon.ico', 'gallery/favicon.ico',),
+        ('dnscond.github.io/clock/index.php', 'clock/index.php',),
     )
 
     basepath = pathlib.Path(r'D:\var\www\BOTs\dnscond.github.io')
@@ -36,6 +37,10 @@ def main():
                     b'type=application/prs\\.blog\\+json>([^<]+)</script>',
                     (lambda match: replacer(match, cont)), cont)
                 file.write(cont)
+    for level in pathlib.Path('tutorials').iterdir():
+        for chapter in level.iterdir():
+            print(chapter)
+
     pass
 
 

@@ -1,0 +1,87 @@
+<svg viewBox="-250 -250 500 500" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .d {
+        stroke: black;
+        stroke-width: 5;
+        }
+
+        text {
+        font-family: monospace;
+        font-weight: bold;
+        }
+
+        .rect {
+        stroke: red;
+        fill: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+    <circle r="245" class="d" fill="#00a8f3"/>
+    <g>
+        <path transform="rotate(0)" d="M 0 190 v 50" class="d"/>
+        <path transform="rotate(6)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(12)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(18)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(24)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(30)" d="M 0 190 v 50" class="d"/>
+        <path transform="rotate(36)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(42)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(48)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(54)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(60)" d="M 0 190 v 50" class="d"/>
+        <path transform="rotate(66)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(72)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(78)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(84)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(90)" d="M 0 190 v 50" class="d"/>
+        <path transform="rotate(96)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(102)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(108)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(114)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(120)" d="M 0 190 v 50" class="d"/>
+        <path transform="rotate(126)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(132)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(138)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(144)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(150)" d="M 0 190 v 50" class="d"/>
+        <path transform="rotate(156)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(162)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(168)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(174)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(180)" d="M 0 190 v 50" class="d"/>
+        <path transform="rotate(186)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(192)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(198)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(204)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(210)" d="M 0 190 v 50" class="d"/>
+        <path transform="rotate(216)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(222)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(228)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(234)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(240)" d="M 0 190 v 50" class="d"/>
+        <path transform="rotate(246)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(252)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(258)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(264)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(270)" d="M 0 190 v 50" class="d"/>
+        <path transform="rotate(276)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(282)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(288)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(294)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(300)" d="M 0 190 v 50" class="d"/>
+        <path transform="rotate(306)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(312)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(318)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(324)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(330)" d="M 0 190 v 50" class="d"/>
+        <path transform="rotate(336)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(342)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(348)" d="M 0 220 v 20" class="d"/>
+        <path transform="rotate(354)" d="M 0 220 v 20" class="d"/>
+    </g>
+    <path transform="rotate(0)" id="s" d="M 0 0 v -240" stroke-width="10" stroke="red"/>
+    <path transform="rotate(0)" id="i" d="M 0 0 v -240" stroke-width="5" stroke="black"/>
+    <path transform="rotate(0)" id="H" d="M 0 0 v -130" stroke-width="10" stroke="black"/>
+    <circle r="10" fill="black"/>
+    <rect x="-140" y="-1em" width="280" height="2em" class="rect" stroke-width="5"/>
+    <text fill="#000000" id="text" font-size="20" text-anchor="middle" y="0.30em">2024-09-19 12:34:56 UTC</text>
+</svg>
