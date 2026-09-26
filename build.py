@@ -37,10 +37,6 @@ def main():
                     b'type=application/prs\\.blog\\+json>([^<]+)</script>',
                     (lambda match: replacer(match, cont)), cont)
                 file.write(cont)
-    for level in pathlib.Path('tutorials').iterdir():
-        for chapter in level.iterdir():
-            print(chapter)
-
     pass
 
 
@@ -48,7 +44,7 @@ def replacer(match, _html):
     # return match.group(0)
     inner_content = json.loads(match.group(1))  # , indent=2
     inner_content['content-type'] = 'text/html'
-    inner_content['buildTimeMS'] = floor(time.time()) * 1000
+    #inner_content['buildTimeMS'] = floor(time.time()) * 1000
     modified_content = json.dumps(inner_content, indent=2).replace('<', '\\u003c').encode('utf8')
     return b'type=application/prs.blog+json>' + modified_content + b'</script>'
 

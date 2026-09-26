@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <title>Convert Any Image File To Image/PNG if they are supported (renderable by your browser)</title>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <link rel=canonical href=https://dnscond.github.io/topng/index.html>
+    <style>
+        body, input, button {
+            font-family: monospace;
+        }
+    </style>
+</head>
+<h1>Convert Any Image File To Image/PNG if they are supported (renderable by your browser)</h1>
+<label>File to convert to png: <input type=file accept=image/*></label>
+<button type=submit>convert in browser</button>
+<noscript>please enable javascript</noscript>
+<a class=a hidden>Download</a>
+<ol></ol>
+<script type=module>
+    const input = document.querySelector('input[type=file]'),
+        a = document.querySelector('a.a'), ol = document.querySelector('ol');
+    document.querySelector('button[type=submit]').addEventListener('click',
+        () => createImageBitmap(input.files[0]).then(imageBitmap => {
+            const offscreenCanvas = new OffscreenCanvas(imageBitmap.width, imageBitmap.height),
+                ctx = offscreenCanvas.getContext("2d");
+            ctx.drawImage(imageBitmap, 0, 0, imageBitmap.width, imageBitmap.height);
+            return offscreenCanvas.convertToBlob();
+        }).then(blob => {
+            a.download = Date();
+            const blobHref = URL.createObjectURL(blob);
+            a.href = blobHref;
+            a.click();
+            return new Promise(resolve => setTimeout(resolve, 5000)).then(() => blobHref);
+        }).then(URL.revokeObjectURL).catch(error => ol.append(Object.assign(document.createElement('li'), {textContent: String(error),})),));
+</script>
