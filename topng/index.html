@@ -1,35 +1,41 @@
-<!DOCTYPE html>
-<html lang=en>
-<head>
-    <title>Convert Any Image File To Image/PNG if they are supported (renderable by your browser)</title>
-    <meta name=viewport content="width=device-width, initial-scale=1">
-    <link rel=canonical href=https://dnscond.github.io/topng/index.html>
-    <style>
-        body, input, button {
-            font-family: monospace;
-        }
-    </style>
-</head>
-<h1>Convert Any Image File To Image/PNG if they are supported (renderable by your browser)</h1>
-<label>File to convert to png: <input type=file accept=image/*></label>
-<button type=submit>convert in browser</button>
-<noscript>please enable javascript</noscript>
-<a class=a hidden>Download</a>
-<ol></ol>
-<script type=module>
-    const input = document.querySelector('input[type=file]'),
-        a = document.querySelector('a.a'), ol = document.querySelector('ol');
-    document.querySelector('button[type=submit]').addEventListener('click',
-        () => createImageBitmap(input.files[0]).then(imageBitmap => {
-            const offscreenCanvas = new OffscreenCanvas(imageBitmap.width, imageBitmap.height),
-                ctx = offscreenCanvas.getContext("2d");
-            ctx.drawImage(imageBitmap, 0, 0, imageBitmap.width, imageBitmap.height);
-            return offscreenCanvas.convertToBlob();
-        }).then(blob => {
-            a.download = Date();
-            const blobHref = URL.createObjectURL(blob);
-            a.href = blobHref;
-            a.click();
-            return new Promise(resolve => setTimeout(resolve, 5000)).then(() => blobHref);
-        }).then(URL.revokeObjectURL).catch(error => ol.append(Object.assign(document.createElement('li'), {textContent: String(error),})),));
-</script>
+<!DOCTYPE html><html lang="en" data-line=#00a8f3 data-bg=#0073a6><meta charset=UTF-8><title>Convert Any Image File To Image/PNG if they are supported (renderable by your browser) (DNSCond.Github.io)</title><base href="/">
+<script type=importmap>{"imports":{}}</script><script type=module src=/require/JSONScript.js></script>
+<meta name=viewport content='width=device-width,initial-scale=1'>
+<link href=/require/header3/ANTStylesheet.css rel=stylesheet>
+<link href='/require/header3/nightLight.css.php?n=0' rel=stylesheet>
+<link href='style.css' rel=stylesheet>
+<link rel=icon href=/favicon.ico><meta name=theme-color content=#0073a6>
+<link href='https://dnscond.github.io/topng/' rel=canonical>
+<script src=/require/header3/domContentLoadedPromise.js></script>
+<body class=""><nav class=headernav data-base-color=#ff4500><div>
+<antnav-option ><a href='https://antrequest.nl'><img src='/gallery/favicon.ico' alt='ANTRequest Gallery' width=200 height=200></a></antnav-option><antnav-option data-o=#ff4500 data-b=#a62c00><a href='https://dnscond.github.io'><img src='/favicon.ico' alt='DNSCond.Github.io' width=512 height=512></a></antnav-option>
+</div></nav><nav class=breadcrumbs-list><div><ol><li><a href='https://dnscond.github.io' aria-current=page>DNSCond.Github.io</a>
+<li><a href='/topng/'>To PNG</a></ol></div></nav>
+<!-- WebPage -->
+
+<div class=divs>
+    <h1>Convert Any Image File To Image/PNG if they are supported (renderable by your browser)</h1>
+    <label>File to convert to png: <input type=file accept=image/*></label>
+    <button type=submit>convert in browser</button>
+    <noscript>please enable javascript</noscript>
+    <a class=a hidden>Download</a>
+    <ol></ol>
+    <script type=module>
+        const input = document.querySelector('input[type=file]'),
+            a = document.querySelector('a.a'), ol = document.querySelector('ol');
+        document.querySelector('button[type=submit]').addEventListener('click',
+            () => createImageBitmap(input.files[0]).then(imageBitmap => {
+                const offscreenCanvas = new OffscreenCanvas(imageBitmap.width, imageBitmap.height),
+                    ctx = offscreenCanvas.getContext("2d");
+                ctx.drawImage(imageBitmap, 0, 0, imageBitmap.width, imageBitmap.height);
+                return offscreenCanvas.convertToBlob();
+            }).then(blob => {
+                a.download = Date();
+                const blobHref = URL.createObjectURL(blob);
+                a.href = blobHref;
+                a.click();
+                return new Promise(resolve => setTimeout(resolve, 5000)).then(() => blobHref);
+            }).then(URL.revokeObjectURL).catch(error => ol.append(Object.assign(document.createElement('li'), {textContent: String(error),})),));
+    </script>
+</div>
+<div class=bottom-divs></div>

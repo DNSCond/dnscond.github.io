@@ -13,6 +13,7 @@ def main():
         ('require/head2/domContentLoadedPromise.js', 'require/head2/domContentLoadedPromise.js',),
         ('gallery/favicon.ico', 'gallery/favicon.ico',),
         ('dnscond.github.io/clock/index.php', 'clock/index.php',),
+        ('dnscond.github.io/topng/index.php', 'topng/index.php',),
     )
 
     basepath = pathlib.Path(r'D:\var\www\BOTs\dnscond.github.io')
