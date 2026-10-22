@@ -7,7 +7,7 @@ def main():
         # path url, path fs,
         ('dnscond.github.io/index.php', 'index.php',),
         ('dnscond.github.io/projects/index.php', 'projects/index.php',),
-        # ('require/Nav.css', 'require/Nav.css',),
+        ('require/header3/domContentLoadedPromise.js', 'require/header3/domContentLoadedPromise.js',),
         ('require/header3/ANTStylesheet.css', 'require/header3/ANTStylesheet.css',),
         ('require/JSONScript.js', 'require/JSONScript.js',),
         ('gallery/favicon.ico', 'gallery/favicon.ico',),
@@ -24,7 +24,11 @@ def main():
         path = path.with_suffix('.html') if path.suffix == '.php' else path
         path.parent.mkdir(parents=True, exist_ok=True)
         with open(path, 'wb') as file:
-            file.write(resp.content)
+            cont = resp.content
+            cont = re.sub(
+                b"<link href='/require/header3/nightLight\\.css\\.php\\?n=[01]' rel=stylesheet>",
+                b"<link href='/require/header3/nightLight.css' rel=stylesheet>", cont)
+            file.write(cont)
     for i in pathlib.Path('blog').iterdir():
         if i.suffix == '.php':
             url = f'http://localhost/dnscond.github.io/blog/{i.name}?isntLocalhost=1'
@@ -36,7 +40,13 @@ def main():
                 cont = re.sub(
                     b'type=application/prs\\.blog\\+json>([^<]+)</script>',
                     (lambda match: replacer(match, cont)), cont)
+                cont = re.sub(
+                    b"<link href='/require/header3/nightLight\\.css\\.php\\?n=[01]' rel=stylesheet>",
+                    b"<link href='/require/header3/nightLight.css' rel=stylesheet>", cont)
                 file.write(cont)
+    with open('./require/header3/nightLight.css', 'wb') as file:
+        resp = requests.get('http://localhost/require/header3/nightLight.css.php')
+        file.write(resp.content)
     pass
 
 
@@ -44,7 +54,7 @@ def replacer(match, _html):
     # return match.group(0)
     inner_content = json.loads(match.group(1))  # , indent=2
     inner_content['content-type'] = 'text/html'
-    #inner_content['buildTimeMS'] = floor(time.time()) * 1000
+    # inner_content['buildTimeMS'] = floor(time.time()) * 1000
     modified_content = json.dumps(inner_content, indent=2).replace('<', '\\u003c').encode('utf8')
     return b'type=application/prs.blog+json>' + modified_content + b'</script>'
 
